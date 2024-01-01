@@ -193,6 +193,77 @@ body {
 }
 /* --------------------- */
 
+/* LISTs */
+.playlist__box {
+  padding: 1rem 0.85rem;
+  background-color: #272727;
+  gap: 2rem;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+.close {
+  font-size: 1.75rem;
+  padding-right: 0.25rem;
+}
+
+.lists {
+  gap: 1.25rem;
+  height: 24rem;
+  overflow-y: scroll;
+}
+
+.lists::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  align-items: center;
+}
+
+.list__profile {
+  width: 3.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.list > div {
+}
+
+.detail {
+  gap: 0.25rem;
+}
+
+.list_songname {
+  font-size: 1.1rem;
+}
+
+.para {
+  color: hsl(0, 0%, 37%);
+  font-size: 0.85rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.list__play {
+  margin-left: auto;
+  font-size: 2.5rem;
+}
+/* --------------------- */
+
 .hide {
   display: none;
+}
+
+.playlist__box--active {
+  transform: translateY(0%);
 }
