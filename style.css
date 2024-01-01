@@ -1,0 +1,196 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+:root {
+  --main-bk-clr: hsl(0, 0%, 6%);
+  --progressbar-clr: hsl(45, 63%, 50%);
+  --start-stop-clr: hsl(45, 63%, 50%);
+  --artiest-clr: hsl(0, 0%, 64%);
+
+  --default-text-clr: hsl(0, 0%, 100%);
+
+  --white-clr: hsl(0, 0%, 100%);
+  --black-clr: hsl(0, 0%, 0%);
+}
+
+body {
+  min-height: 100vh;
+  isolation: isolate;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main-bk-clr);
+  color: var(--default-text-clr);
+
+  display: grid;
+  place-items: start center;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* MAIN */
+.main {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.main__container {
+  padding-inline: 1.25rem;
+  gap: 4.25rem;
+}
+
+.status__box {
+  justify-items: center;
+  gap: 0.125rem;
+}
+
+.status {
+  font-size: 1.1rem;
+  display: block;
+}
+
+.down_arrow {
+  font-size: 1.75rem;
+}
+
+.wrapper {
+  gap: 2.25rem;
+}
+
+.overview {
+}
+
+.about {
+  text-align: center;
+  gap: 2rem;
+}
+
+.about > div {
+  gap: 0.5rem;
+}
+
+#profile__img {
+  margin-inline: auto;
+  width: 14.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.primary--title {
+  font-size: 1.55rem;
+  letter-spacing: 0.5px;
+}
+
+.artiest {
+  color: var(--artiest-clr);
+  font-size: 0.95rem;
+}
+/* --------------------- */
+
+/* CONTROLS */
+.controls {
+}
+
+.progress__box {
+  gap: 0.75rem;
+}
+
+.progressArea {
+}
+
+.progressbar {
+  background-color: var(--progressbar-clr);
+  height: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.duration {
+  justify-content: space-between;
+}
+
+.duration > span {
+  font-size: 0.9rem;
+}
+
+.current__time {
+}
+
+.total__duration {
+}
+
+.button__box {
+  justify-content: space-between;
+}
+
+.btn {
+}
+
+.icon {
+  color: var(--white-clr);
+  font-size: 2rem;
+}
+
+.icon_2 {
+  font-size: 2.55rem;
+}
+
+.start_stop__box {
+  gap: 1.35rem;
+}
+
+#loop {
+}
+
+#back {
+}
+
+#start_stop {
+  background-color: var(--start-stop-clr);
+  padding: 0.5rem;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+#forward {
+}
+
+#palylist {
+}
+/* --------------------- */
+
+.hide {
+  display: none;
+}

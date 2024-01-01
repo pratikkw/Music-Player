@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="main__container grid">
+        <div class="status__box grid">
+          <span class="status">Now Playing</span>
+          <span class="material-symbols-outlined down_arrow">
+            expand_more
+          </span>
+        </div>
+        <div class="wrapper grid">
+          <section class="overview">
+            <div class="about grid">
+              <img id="profile__img" src="images/blinding lights.jpg" alt="" />
+              <div class="grid">
+                <h1 class="primary--title">Blinding Lights</h1>
+                <span class="artiest">The Weeknd</span>
+              </div>
+            </div>
+          </section>
+          <section class="controls grid">
+            <!-- PROGRESSBARs -->
+            <div class="progress__box grid">
+              <div class="progressArea">
+                <div class="progressbar"></div>
+              </div>
+              <div class="duration flex">
+                <span class="current_time">0:00</span>
+                <span class="total__duration">3:45</span>
+              </div>
+            </div>
+            <!-- BUTTONs -->
+            <div class="button__box flex">
+              <button class="btn" id="loop">
+                <span class="material-symbols-outlined icon"> repeat </span>
+                <span class="material-symbols-outlined icon hide">
+                  repeat_one
+                </span>
+              </button>
+              <div class="start_stop__box flex">
+                <button class="btn" id="back">
+                  <span class="material-symbols-outlined icon icon_2">
+                    skip_previous
+                  </span>
+                </button>
+                <button class="btn flex" id="start_stop">
+                  <span class="material-symbols-outlined icon icon_2 hide">
+                    play_arrow
+                  </span>
+                  <span class="material-symbols-outlined icon icon_2">
+                    pause
+                  </span>
+                </button>
+                <button class="btn" id="forward">
+                  <span class="material-symbols-outlined icon icon_2">
+                    skip_next
+                  </span>
+                </button>
+              </div>
+              <button class="btn" id="playlist">
+                <span class="material-symbols-outlined icon">
+                  queue_music
+                </span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
