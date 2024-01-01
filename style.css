@@ -45,7 +45,7 @@ body {
   color: var(--default-text-clr);
 
   display: grid;
-  place-items: start center;
+  place-items: center center;
 }
 
 .flex {
@@ -62,7 +62,7 @@ body {
 /* MAIN */
 .main {
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .main__container {
