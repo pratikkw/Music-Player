@@ -37,7 +37,7 @@ li {
 }
 
 body {
-  min-height: 100vi;
+  min-height: 100vh;
   isolation: isolate;
   position: relative;
   font-family: "Roboto", sans-serif;
