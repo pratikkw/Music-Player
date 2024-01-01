@@ -72,7 +72,7 @@ body {
 
 .status__box {
   justify-items: center;
-  gap: 0.125rem;
+  gap: 0.25rem;
 }
 
 .status {
