@@ -277,19 +277,16 @@ body {
 }
 
 .header {
-  justify-content: space-between;
   padding: var(--header-padding);
   border-bottom: 2px solid #575757;
   box-shadow: 0px 3px 12px 2px hsl(0deg 0% 34.12% / 40%);
+  align-items: center;
 }
 
 .close {
   font-size: var(--close-fs);
   padding-right: var(--close-padding-right);
-}
-
-.waves {
-  display: none;
+  margin-left: auto;
 }
 
 .lists {
@@ -426,10 +423,6 @@ body {
     margin-bottom: 3rem;
   }
 
-  .playlist__box--status {
-    display: none;
-  }
-
   .header {
     box-shadow: 0px 2px 10px 0px hsl(0deg 0% 34.12% / 45%);
     align-items: center;
@@ -449,7 +442,6 @@ body {
   }
 
   .waves {
-    display: block;
     font-size: 2rem;
   }
 
