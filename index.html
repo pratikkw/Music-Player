@@ -46,7 +46,6 @@
                 src="Images/blinding lights.jpg"
                 alt=""
               />
-              <audio src="Songs/Peaky Blinders Theme Song.mp3"></audio>
               <div class="grid">
                 <h1 class="primary--title">Blinding Lights</h1>
                 <span class="artiest">The Weeknd</span>
@@ -107,10 +106,11 @@
             <!-- PROGRESSBARs -->
             <div class="progress__box grid">
               <div class="progressArea">
+                <audio class="our__audio"></audio>
                 <div class="progressbar"></div>
               </div>
               <div class="duration flex">
-                <span class="current_time">0:00</span>
+                <span class="current__time">0:00</span>
                 <span class="total__duration">3:45</span>
               </div>
             </div>
@@ -129,18 +129,24 @@
 
               <!-- START/STOP -->
               <div class="start_stop__box flex">
-                <button class="btn" id="back">
+                <button class="btn" id="previous">
                   <span class="material-symbols-outlined icon icon_2">
                     skip_previous
                   </span>
                 </button>
                 <button class="btn flex" id="start_stop">
-                  <span class="material-symbols-outlined icon icon_2 hide">
+                  <span
+                    id="play_btn"
+                    class="material-symbols-outlined icon icon_2"
+                  >
                     play_arrow
                   </span>
-                  <span class="material-symbols-outlined icon icon_2">
+                  <!-- <span
+                    id="pause_btn"
+                    class="material-symbols-outlined icon icon_2 hide"
+                  >
                     pause
-                  </span>
+                  </span> -->
                 </button>
                 <button class="btn" id="forward">
                   <span class="material-symbols-outlined icon icon_2">
