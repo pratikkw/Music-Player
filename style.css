@@ -48,6 +48,7 @@ button {
 
 :root {
   --main-bk-clr: hsl(0, 0%, 6%);
+  --overlay-bk-clr: hsla(0, 0%, 6%, 0.1);
   --progressbar-clr: hsl(47, 95%, 56%);
   --start-stop-clr: hsl(47, 95%, 56%);
   --artiest-clr: hsl(0, 0%, 64%);
@@ -117,6 +118,29 @@ body {
   grid-template-columns: 1fr;
   gap: 1rem;
 }
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background-color: var(--overlay-bk-clr);
+  display: none;
+}
+/* --------------------- */
+
+/* PRE-LOADER */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background-color: var(--main-bk-clr);
+  z-index: 40;
+
+  display: grid;
+  place-items: center;
+}
+
+/* --------------------- */
 
 /* MAIN */
 .main {
@@ -280,6 +304,7 @@ body {
 
   position: fixed;
   inset: auto auto 0 0;
+  z-index: 20;
   transform: translateY(100%);
   transition: transform 0.3s;
 }
@@ -336,9 +361,22 @@ body {
   display: none;
 }
 
+.body-scroll--lock {
+  overflow: hidden;
+}
+
+.overlay--active {
+  display: block;
+}
+
+.preloader--deactivate {
+  display: none;
+}
+
 .playlist__box--active {
   transform: translateY(0%);
 }
+
 /* --------------------- */
 
 /* MEDIA QUERY */
@@ -452,9 +490,10 @@ body {
   }
 
   .controls {
+    width: 100%;
     position: fixed;
     inset: auto auto 0 0;
-    width: 100%;
+    z-index: 30;
     background-color: var(--controls-bk-clr);
     gap: 0;
 
