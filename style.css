@@ -34,14 +34,20 @@ h3 {
   letter-spacing: 0.5px;
 }
 
-h1,
-h2,
-h3,
-p,
+input,
+textarea,
 button,
-span::selection {
-  user-select: none;
-  background: none;
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:focus,
+a:visited,
+a:active {
+  outline: none;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
