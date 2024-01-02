@@ -54,10 +54,9 @@ h1 {
   user-select: text;
 }
 
-/* button,
-.list__play {
+button {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-} */
+}
 
 /* span::selection {
   background-color: transparent;
