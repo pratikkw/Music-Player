@@ -50,6 +50,10 @@ a:active {
   -webkit-tap-highlight-color: transparent;
 } */
 
+h1 {
+  user-select: text;
+}
+
 button,
 .list__play {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -98,6 +102,7 @@ span::selection {
 
 body {
   min-height: 100dvh;
+  user-select: none;
   isolation: isolate;
   position: relative;
   font-family: "Roboto", sans-serif;
