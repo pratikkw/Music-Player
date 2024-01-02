@@ -14,7 +14,7 @@ const audioBox = document.querySelector(".our__audio");
 const songImg = document.getElementById("profile__img");
 const title = document.querySelector(".primary--title");
 const artiest = document.querySelector(".artiest");
-const currentTime = document.querySelector(".current__time");
+const currentsongTime = document.querySelector(".current__time");
 const totalDuration = document.querySelector(".total__duration");
 
 // CONTROLs
@@ -37,7 +37,6 @@ const setupSong = function (num) {
   title.textContent = ourSong.title;
   artiest.textContent = ourSong.artiest;
   audioBox.src = ourSong.audio;
-  console.log(audioBox.readyState);
 };
 // -------------------------------
 
@@ -110,22 +109,25 @@ const skip = function () {
 // -------------------------------
 
 // DURATION
-const durationLogic = function () {
-  const songDura = audioBox.duration;
-  console.log(audioBox, songDura);
-  const min = Math.trunc(songDura / 60);
-  const sec = Math.trunc(songDura % 60);
-
-  totalDuration.textContent = `${min > 10 ? min : "0" + min}: ${
-    sec > 10 ? sec : "0" + sec
-  }`;
-};
+const durationLogic = function () {};
 // -------------------------------
 
 window.addEventListener("load", function () {
   preloaderImg.src = "";
   preloaderImg.alt = "";
   preloader.classList.add("preloader--deactivate");
+});
+
+audioBox.addEventListener("timeupdate", function (e) {
+  const songDura = e.target.duration;
+  const min = Math.trunc(songDura / 60);
+  const sec = Math.trunc(songDura % 60);
+
+  totalDuration.textContent = `${min > 10 ? min : "0" + min}: ${
+    sec > 10 ? sec : "0" + sec
+  }`;
+
+  currentsongTime.textContent = Math.trunc(e.target.currentTime);
 });
 
 playlistBtn.addEventListener("click", openPlaylist);
