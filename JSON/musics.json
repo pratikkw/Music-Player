@@ -1,0 +1,92 @@
+{
+  "music": [
+    {
+      "id": 0,
+      "title": "Heat Waves",
+      "artiest": "Glass Animals",
+      "img": "../images/Heatwaves.jpg",
+      "audio": "../Songs/Glass Animals - Heat Waves (Official Video).mp3",
+      "color-theme": ""
+    },
+    {
+      "id": 1,
+      "title": "John Wick- Rasputin",
+      "artiest": "Elli Ned",
+      "img": "../images/johnwick.jpg",
+      "audio": "../Songs/John Wick - Rasputin.mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 2,
+      "title": "Girl Like You (feat. Cardi B)",
+      "artiest": "Maroon 5",
+      "img": "../images/maroon-5-gril-like-you.jpg",
+      "audio": "../Songs/Maroon 5 - Girls Like You ft. Cardi B (Official Music Video).mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 3,
+      "title": "Sugar",
+      "artiest": "Maroon 5",
+      "img": "../images/Sugar-maroon5.jpg",
+      "audio": "../Songs/Maroon 5 - Sugar (Official Music Video).mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 4,
+      "title": "Peaky Blinder",
+      "artiest": "Otnicka & Duke Luke",
+      "img": "../images/Cillian-Murphy-Peaky-Blinders.jpg",
+      "audio": "../Songs/Otnicka - Peaky Blinder (lyrics) _ i am not outsider i'm a peaky blinder.mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 5,
+      "title": "Red Right Hand (Peaky Blinders Theme)",
+      "artiest": "Nick Cave & The Bad Seeds",
+      "img": "../Images/Redrighthand.jpg",
+      "audio": "../Songs/Peaky Blinders Theme Song.mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 6,
+      "title": "Sunflower (Spider-Man into the Spider-Verse)",
+      "artiest": "Post Malone, Swae Lee & Swae Lee",
+      "img": "../images/cover-spiderman-clip.jpg",
+      "audio": "../Songs/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 7,
+      "title": "Blinding Lights",
+      "artiest": "The Weeknd",
+      "img": "../images/blinding lights.jpg",
+      "audio": "../Songs/The Weeknd - Blinding Lights (Official Video).mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 8,
+      "title": "Starboy (feat. Daft Punk)",
+      "artiest": "The Weeknd",
+      "img": "../images/starboy.jpg",
+      "audio": "../Songs/The Weeknd - Starboy ft. Daft Punk (Official Video).mp3",
+      "color-theme": ""
+    },
+
+    {
+      "id": 9,
+      "title": "Risk",
+      "artiest": "StudioKolomna",
+      "img": "../images/risk.webp",
+      "audio": "../Songs/risk.mp3",
+      "color-theme": ""
+    }
+  ]
+}
