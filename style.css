@@ -57,6 +57,7 @@ button {
 
   --playlist__box-bk-clr: hsl(0, 0%, 15%);
   --controls-bk-clr: hsl(0, 0%, 15%);
+  --list-hover-bk-clr: hsl(0, 0%, 15%);
 
   /* TEXT Clr */
   --default-text-clr: hsl(0, 0%, 100%);
@@ -171,7 +172,7 @@ body {
 
   /* PADDING */
   --header-padding: 1rem 0.85rem;
-  --list-padding: 1rem 0.85rem;
+  --lists-padding: 1rem 0.85rem;
   --close-padding-right: 0.25rem;
 
   /* MARGIN */
@@ -322,10 +323,11 @@ body {
 }
 
 .lists {
+  cursor: pointer;
   gap: var(--lists-gap);
   height: var(--lists-height);
   overflow-y: scroll;
-  padding: var(--list-padding);
+  padding: var(--lists-padding);
 }
 
 .lists::-webkit-scrollbar {
@@ -380,6 +382,17 @@ body {
 /* --------------------- */
 
 /* MEDIA QUERY */
+
+@media only screen and (hover: hover) {
+  .list {
+    transition: all 0.3s;
+  }
+
+  .list:hover {
+    background-color: var(--list-hover-bk-clr);
+  }
+}
+
 @media only screen and (min-width: 31.25rem) {
   :root {
     --primary-text-fs: 1.85rem;
@@ -396,7 +409,7 @@ body {
 
     /* PADDING */
     --header-padding: 1rem 0.85rem;
-    --list-padding: 1.75rem 1.5rem;
+    --lists-padding: 1.75rem 1.5rem;
 
     /* IMAGE */
     --profile-img-width: 18.5rem;
@@ -413,7 +426,7 @@ body {
 
     /* PADDING */
     --header-padding: 1rem 1.25rem 1.25rem 1.25rem;
-    --list-padding: 2rem 1.75rem;
+    --lists-padding: 2rem 1.75rem;
   }
 
   .controls {
@@ -443,9 +456,11 @@ body {
     /* GAP */
     --about-gap: 3rem;
     --header-padding: 1.25rem;
+    --lists-gap: 0.25rem;
 
     /* PADDING */
-    --list-padding: 2rem 0.75rem 5rem 0.75rem;
+    --lists-padding: 2rem 0rem 4rem 0rem;
+    --list-padding: 0.75rem 0.75rem;
     --duration-padding-inline: 1.5rem;
     --button_box-padding: 0 1.5rem 0.75rem 1.5rem;
 
@@ -487,6 +502,11 @@ body {
 
   .waves {
     font-size: var(--waves-fs);
+  }
+
+  .list {
+    padding: var(--list-padding);
+    border-radius: 0.25rem;
   }
 
   .controls {
