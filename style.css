@@ -41,6 +41,7 @@ p,
 button,
 span::selection {
   user-select: none;
+  background: none;
 }
 
 :root {
