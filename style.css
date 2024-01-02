@@ -323,7 +323,6 @@ body {
 }
 
 .lists {
-  cursor: pointer;
   gap: var(--lists-gap);
   height: var(--lists-height);
   overflow-y: scroll;
@@ -383,15 +382,16 @@ body {
 
 /* MEDIA QUERY */
 
-/* @media only screen and (hover: hover) {
+@media only screen and (hover: hover) {
   .list {
+    cursor: pointer;
     transition: all 0.3s;
   }
 
   .list:hover {
     background-color: var(--list-hover-bk-clr);
   }
-} */
+}
 
 @media only screen and (min-width: 31.25rem) {
   :root {
