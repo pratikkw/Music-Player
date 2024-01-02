@@ -34,6 +34,15 @@ h3 {
   letter-spacing: 0.5px;
 }
 
+h1,
+h2,
+h3,
+p,
+button,
+span::selection {
+  user-select: none;
+}
+
 :root {
   --main-bk-clr: hsl(0, 0%, 6%);
   --progressbar-clr: hsl(47, 95%, 56%);
