@@ -358,6 +358,10 @@ body {
   gap: var(--para-gap);
 }
 
+.para > span {
+  text-wrap: nowrap;
+}
+
 .list__play {
   margin-left: auto;
   font-size: var(--list_play-fs);
