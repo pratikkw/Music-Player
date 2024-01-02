@@ -7,7 +7,7 @@
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   display: block;
 }
 
@@ -83,6 +83,9 @@ button {
 
   /* FONT */
   --primary-text-fs: 1.55rem;
+
+  /* IMAGE */
+  --pac-man-img-width: 12rem;
 }
 
 body {
@@ -141,6 +144,10 @@ body {
   place-items: center;
 }
 
+.preloader > img {
+  width: var(--pac-man-img-width);
+}
+
 /* --------------------- */
 
 /* MAIN */
@@ -155,8 +162,8 @@ body {
   --about_div-gap: 0.5rem;
   --playlist_box-gap: 0rem;
   --lists-gap: 1.25rem;
-  --detail-gap: 0.25rem;
   --para-gap: 0.5rem;
+  --detail-gap: 0.25rem;
 
   /* FONT-SIZE */
   --status-fs: 1.1rem;
@@ -396,6 +403,7 @@ body {
 @media only screen and (min-width: 31.25rem) {
   :root {
     --primary-text-fs: 1.85rem;
+    --pac-man-img-width: 18rem;
   }
 
   .main {
@@ -447,6 +455,9 @@ body {
     /* BORDER & BORDER Clr */
     --header-border: 0px 1px 10px 0px;
     --header-border-clr: hsl(0deg 0% 34.12% / 45%);
+
+    /* IMAGE */
+    --pac-man-img-width: 21rem;
   }
 
   .main {
@@ -459,7 +470,7 @@ body {
     --lists-gap: 0.25rem;
 
     /* PADDING */
-    --lists-padding: 2rem 0rem 4rem 0rem;
+    --lists-padding: 1.5rem 0rem 4rem 0rem;
     --list-padding: 0.75rem 0.75rem;
     --duration-padding-inline: 1.5rem;
     --button_box-padding: 0 1.5rem 0.75rem 1.5rem;
