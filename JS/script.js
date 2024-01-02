@@ -18,6 +18,8 @@ const currentsongTime = document.querySelector(".current__time");
 const totalDuration = document.querySelector(".total__duration");
 
 // CONTROLs
+const progressArea = document.querySelector(".progressArea");
+const progressbar = document.querySelector(".progressbar");
 const play_pauseBtn = document.getElementById("start_stop");
 const play_pauseSpan = document.getElementById("play_btn");
 const skipNext = document.getElementById("forward");
@@ -26,6 +28,7 @@ const loopBtn = document.getElementById("loop");
 const playlistBtn = document.getElementById("playlist");
 
 let allSong;
+let countMin = 0;
 let currentSong = 0;
 let maxLeng;
 
@@ -119,15 +122,44 @@ window.addEventListener("load", function () {
 });
 
 audioBox.addEventListener("timeupdate", function (e) {
+  const ct = e.target.currentTime;
   const songDura = e.target.duration;
   const min = Math.trunc(songDura / 60);
   const sec = Math.trunc(songDura % 60);
 
-  totalDuration.textContent = `${min > 10 ? min : "0" + min}: ${
-    sec > 10 ? sec : "0" + sec
-  }`;
+  // Total Duration:-
+  if (isNaN(min) || isNaN(sec)) {
+    totalDuration.textContent = `0:00`;
+  } else {
+    totalDuration.textContent = `${min}:${sec > 10 ? sec : "0" + sec}`;
+  }
 
-  currentsongTime.textContent = Math.trunc(e.target.currentTime);
+  // Update Current Time:-
+  const ctroundup = Math.trunc(e.target.currentTime);
+  const ctmin = Math.trunc(ctroundup / 60);
+  const ctsec = ctroundup % 60;
+  currentsongTime.textContent = `${ctmin}:${ctsec >= 10 ? ctsec : "0" + ctsec}`;
+
+  // ProgressBar:-
+  progressbar.style.width = `${(ct / songDura) * 100}%`;
+  progressArea.style.setProperty(
+    "--progressbar-psedafter-width",
+    `${(ct / songDura) * 100}%`
+  );
+});
+
+progressArea.addEventListener("click", function (e) {
+  const dragArea = e.clientX;
+  const total_width = this.offsetWidth;
+
+  audioBox.currentTime = (dragArea / total_width) * audioBox.duration;
+  progressbar.style.width = `${(dragArea / total_width) * 100}%`;
+  progressArea.style.setProperty(
+    "--progressbar-psedafter-width",
+    `${(dragArea / total_width) * 100}%`
+  );
+  audioBox.play();
+  play_pauseSpan.innerText = "pause";
 });
 
 playlistBtn.addEventListener("click", openPlaylist);

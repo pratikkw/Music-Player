@@ -58,6 +58,8 @@ button {
   --playlist__box-bk-clr: hsl(0, 0%, 15%);
   --controls-bk-clr: hsl(0, 0%, 15%);
   --list-hover-bk-clr: hsl(0, 0%, 15%);
+  --progressArea-bk-clr: hsl(0, 0%, 25%);
+  --progressArea-bk-hover-clr: hsl(0, 0%, 44%);
 
   /* TEXT Clr */
   --default-text-clr: hsl(0, 0%, 100%);
@@ -254,6 +256,7 @@ body {
   --icon-fs: 2rem;
   --icon_2-fs: 2.75rem;
 
+  --progressArea-height: 0.25rem;
   --progressbar-height: 0.25rem;
   --progressbar-border-radius: 0.25rem;
 }
@@ -262,10 +265,34 @@ body {
   gap: var(--progress_box-gap);
 }
 
+.progressArea {
+  --progressbar-psedafter-width: 0%;
+  position: relative;
+
+  width: 100%;
+  height: var(--progressArea-height);
+  background-color: var(--progressArea-bk-clr);
+  transition: all 0.3s;
+}
+
 .progressbar {
+  width: 0%;
   background-color: var(--progressbar-clr);
   height: var(--progressbar-height);
   border-radius: var(--progressbar-border-radius);
+}
+
+.progressArea::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--progressbar-psedafter-width);
+  transform: translate(-10%, -40%);
+  width: 0.85rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--progressbar-clr);
+  display: none;
 }
 
 .duration {
@@ -388,12 +415,23 @@ body {
 .playlist__box--active {
   transform: translateY(0%);
 }
-
 /* --------------------- */
 
 /* MEDIA QUERY */
 
 @media only screen and (hover: hover) {
+  .progressArea {
+    cursor: pointer;
+  }
+
+  .progressArea:hover {
+    background-color: var(--progressArea-bk-hover-clr);
+  }
+
+  .progressArea:hover::after {
+    display: block;
+  }
+
   .list {
     cursor: pointer;
     transition: all 0.3s;
