@@ -163,7 +163,7 @@ body {
   --about-gap: 2.5rem;
   --about_div-gap: 0.5rem;
   --playlist_box-gap: 0rem;
-  --lists-gap: 1.25rem;
+  --lists-gap: 0rem;
   --para-gap: 0.5rem;
   --detail-gap: 0.25rem;
 
@@ -180,8 +180,9 @@ body {
   --profile-img-width: 15.5rem;
 
   /* PADDING */
-  --header-padding: 1rem 0.85rem;
-  --lists-padding: 1rem 0.85rem;
+  --header-padding: 1rem 1.25rem;
+  --lists-padding: 1rem 0rem;
+  --list-padding: 0.85rem 1.25rem;
   --close-padding-right: 0.25rem;
 
   /* MARGIN */
@@ -227,6 +228,7 @@ body {
 .about,
 .about > div {
   justify-items: center;
+  text-align: center;
 }
 
 #profile__img {
@@ -367,6 +369,10 @@ body {
   display: none;
 }
 
+.list {
+  padding: var(--list-padding);
+}
+
 .list__profile {
   width: var(--list_profile-width);
 }
@@ -449,9 +455,6 @@ body {
   }
 
   .main {
-    /* GAP */
-    --lists-gap: 1.75rem;
-
     /* FONT-SIZE */
     --status-fs: 1.25rem;
     --down_arr-fs: 2rem;
@@ -459,7 +462,8 @@ body {
 
     /* PADDING */
     --header-padding: 1rem 0.85rem;
-    --lists-padding: 1.75rem 1.5rem;
+    --lists-padding: 1.25rem 0rem;
+    --list-padding: 0.85rem 1.25rem;
 
     /* IMAGE */
     --profile-img-width: 18.5rem;
@@ -468,15 +472,13 @@ body {
 
 @media only screen and (min-width: 37.5rem) {
   .main {
-    /* GAP */
-    --lists-gap: 2rem;
-
     /* HEIGHT */
     --lists-height: 26rem;
 
     /* PADDING */
-    --header-padding: 1rem 1.25rem 1.25rem 1.25rem;
-    --lists-padding: 2rem 1.75rem;
+    --header-padding: 1rem 1.5rem 1.25rem 1.5rem;
+    --lists-padding: 1rem 0rem;
+    --list-padding: 0.85rem 1.5rem;
   }
 
   .controls {

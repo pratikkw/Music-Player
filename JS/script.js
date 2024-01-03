@@ -111,15 +111,38 @@ const skip = function () {
 };
 // -------------------------------
 
-// DURATION
-const durationLogic = function () {};
-// -------------------------------
-
 window.addEventListener("load", function () {
   preloaderImg.src = "";
   preloaderImg.alt = "";
   preloader.classList.add("preloader--deactivate");
 });
+
+// --> HIGHLIGHT THE MUSIC IN LISTs
+const highlightItem = function (num) {
+  const allLists = document.querySelectorAll(".list");
+
+  allLists.forEach((item) => {
+    item.style.backgroundColor = "transparent";
+    item.querySelector(".list__play").innerText = "play_arrow";
+  });
+
+  allLists[num].style.backgroundColor = "#3f3f3f";
+  const btnPlay = allLists[num].querySelector(".list__play");
+  if (btnPlay.innerText === "play_arrow") {
+    btnPlay.innerText = "pause";
+  } else if (btnPlay.innerText === "pause") {
+    btnPlay.innerText = "play_arrow";
+  }
+};
+// -------------------------------
+
+// --> CHANGE PLAY & PAUSE FOR LISTs
+const startandstopLists = function () {
+  const allLists = document.querySelectorAll(".list");
+  allLists[currentSong].querySelector(".list__play").innerText =
+    play_pauseBtn.innerText;
+};
+// -------------------------------
 
 // --> UPDATE CURRENT TIME & SET TOTAL DURATION
 audioBox.addEventListener("timeupdate", function (e) {
@@ -171,10 +194,22 @@ songLists.addEventListener("click", function (e) {
   const item = e.target.closest(".list");
   if (!item) return;
 
-  currentSong = item.dataset.id;
-  setupSong(currentSong);
-  audioBox.play();
-  play_pauseSpan.innerText = "pause";
+  if (item.dataset.id === currentSong && audioBox.paused === false) {
+    audioBox.pause();
+    play_pauseSpan.innerText = "play_arrow";
+    startandstopLists();
+  } else if (item.dataset.id === currentSong && audioBox.paused === true) {
+    audioBox.play();
+    play_pauseSpan.innerText = "pause";
+    startandstopLists();
+  } else {
+    currentSong = item.dataset.id;
+    setupSong(currentSong);
+    highlightItem(currentSong);
+    audioBox.play();
+    play_pauseSpan.innerText = "pause";
+  }
+  playlistArea.classList.toggle("playlist__box--active");
 });
 // -------------------------------
 
@@ -184,17 +219,20 @@ overlay.addEventListener("click", openPlaylist);
 
 play_pauseBtn.addEventListener("click", function (e) {
   play_puase_Logic(e.target);
-  durationLogic();
+  highlightItem(currentSong);
+  startandstopLists();
 });
 
 skipNext.addEventListener("click", function () {
   currentSong++;
   currentSong = currentSong === maxLeng ? 0 : currentSong;
   skip();
+  highlightItem(currentSong);
 });
 
 skipPrev.addEventListener("click", function () {
   currentSong--;
   currentSong = currentSong < 0 ? maxLeng - 1 : currentSong;
   skip();
+  highlightItem(currentSong);
 });
