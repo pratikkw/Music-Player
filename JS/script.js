@@ -209,7 +209,9 @@ songLists.addEventListener("click", function (e) {
     audioBox.play();
     play_pauseSpan.innerText = "pause";
   }
-  playlistArea.classList.toggle("playlist__box--active");
+  playlistArea.classList.remove("playlist__box--active");
+  overlay.classList.remove("overlay--active");
+  body.classList.remove("body-scroll--lock");
 });
 // -------------------------------
 

@@ -419,7 +419,7 @@ body {
 }
 
 .playlist__box--active {
-  transform: translateY(0%);
+  transform: translate(0%);
 }
 /* --------------------- */
 
