@@ -121,6 +121,7 @@ window.addEventListener("load", function () {
   preloader.classList.add("preloader--deactivate");
 });
 
+// --> UPDATE CURRENT TIME & SET TOTAL DURATION
 audioBox.addEventListener("timeupdate", function (e) {
   const ct = e.target.currentTime;
   const songDura = e.target.duration;
@@ -147,7 +148,9 @@ audioBox.addEventListener("timeupdate", function (e) {
     `${(ct / songDura) * 100}%`
   );
 });
+// -------------------------------
 
+// --> SET PROGRESS BAR
 progressArea.addEventListener("click", function (e) {
   const dragArea = e.clientX;
   const total_width = this.offsetWidth;
@@ -161,6 +164,19 @@ progressArea.addEventListener("click", function (e) {
   audioBox.play();
   play_pauseSpan.innerText = "pause";
 });
+// -------------------------------
+
+// --> SELECT MUSIC FROM LISTs
+songLists.addEventListener("click", function (e) {
+  const item = e.target.closest(".list");
+  if (!item) return;
+
+  currentSong = item.dataset.id;
+  setupSong(currentSong);
+  audioBox.play();
+  play_pauseSpan.innerText = "pause";
+});
+// -------------------------------
 
 playlistBtn.addEventListener("click", openPlaylist);
 playlistCloseBtn.addEventListener("click", openPlaylist);
