@@ -165,7 +165,9 @@ audioBox.addEventListener("timeupdate", function (e) {
   const sec = Math.trunc(songDura % 60);
 
   totalDuration.textContent =
-    isNaN(min) || isNaN(sec) ? `0:00` : `${min}:${sec > 10 ? sec : "0" + sec}`;
+    isNaN(min) || isNaN(sec)
+      ? `Loading`
+      : `${min}:${sec > 10 ? sec : "0" + sec}`;
 
   // Update Current Time:-
   const ctroundup = Math.trunc(e.target.currentTime);
