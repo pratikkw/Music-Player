@@ -379,6 +379,7 @@ body {
 
 .list {
   padding: var(--list-padding);
+  transition: all 0.2s;
 }
 
 .list__profile {
@@ -443,6 +444,10 @@ body {
 .playlist__box--active {
   transform: translate(0%);
 }
+
+.list--active-bk-clr {
+  background-color: hsl(0, 0%, 25%);
+}
 /* --------------------- */
 
 /* MEDIA QUERY */
@@ -462,7 +467,6 @@ body {
 
   .list {
     cursor: pointer;
-    transition: all 0.3s;
   }
 
   .list:hover {

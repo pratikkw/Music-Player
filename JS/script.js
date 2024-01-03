@@ -45,6 +45,8 @@ const setupSong = function (num) {
   title.textContent = ourSong.title;
   artiest.textContent = ourSong.artiest;
   audioBox.src = ourSong.audio;
+
+  songImg.classList.remove("profile__img--rotate");
 };
 // -------------------------------
 
@@ -134,11 +136,11 @@ const highlightItem = function (num) {
   const allLists = document.querySelectorAll(".list");
 
   allLists.forEach((item) => {
-    item.style.backgroundColor = "transparent";
+    item.classList.remove("list--active-bk-clr");
     item.querySelector(".list__play").innerText = "play_arrow";
   });
 
-  allLists[num].style.backgroundColor = "#3f3f3f";
+  allLists[num].classList.add("list--active-bk-clr");
   const btnPlay = allLists[num].querySelector(".list__play");
   btnPlay.innerText =
     btnPlay.innerText === "play_arrow" ? "pause" : "play_arrow";
@@ -227,6 +229,7 @@ songLists.addEventListener("click", function (e) {
     audioBox.play();
     play_pauseIcon.innerText = "pause";
     startandstopLists();
+    highlightItem(currentSong);
   } else {
     currentSong = songNo;
     setupSong(currentSong);
