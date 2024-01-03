@@ -418,6 +418,16 @@ body {
   overflow: hidden;
 }
 
+.profile__img--rotate {
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .overlay--active {
   display: block;
 }

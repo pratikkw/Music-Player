@@ -45,6 +45,8 @@ const setupSong = function (num) {
   title.textContent = ourSong.title;
   artiest.textContent = ourSong.artiest;
   audioBox.src = ourSong.audio;
+
+  songImg.classList.remove("profile__img--rotate");
 };
 // -------------------------------
 
@@ -177,6 +179,9 @@ audioBox.addEventListener("timeupdate", function (e) {
     "--progressbar-psedafter-width",
     `${(ct / songDura) * 100}%`
   );
+
+  // Rotating Image
+  songImg.style.animationPlayState = audioBox.paused ? "paused" : "running";
 });
 
 audioBox.addEventListener("ended", function () {
@@ -211,18 +216,19 @@ progressArea.addEventListener("click", function (e) {
 // --> SELECT MUSIC FROM LISTs
 songLists.addEventListener("click", function (e) {
   const item = e.target.closest(".list");
+  const songNo = Number(item.dataset.id);
   if (!item) return;
 
-  if (item.dataset.id === currentSong && audioBox.paused === false) {
+  if (songNo === currentSong && audioBox.paused === false) {
     audioBox.pause();
     play_pauseIcon.innerText = "play_arrow";
     startandstopLists();
-  } else if (item.dataset.id === currentSong && audioBox.paused === true) {
+  } else if (songNo === currentSong && audioBox.paused === true) {
     audioBox.play();
     play_pauseIcon.innerText = "pause";
     startandstopLists();
   } else {
-    currentSong = item.dataset.id;
+    currentSong = songNo;
     setupSong(currentSong);
     audioBox.play();
     play_pauseIcon.innerText = "pause";
@@ -246,9 +252,10 @@ play_pauseBtn.addEventListener("click", function (e) {
   startandstopLists();
 });
 
+// Play/Pause Through Space Key
 body.addEventListener("keydown", function (e) {
-  e.preventDefault();
   if (e.key !== " ") return;
+  e.preventDefault();
   play_puase_Logic(play_pauseIcon);
   highlightItem(currentSong);
   startandstopLists();
@@ -272,3 +279,10 @@ skipPrev.addEventListener("click", function () {
 
 // Loop Button
 loopBtn.addEventListener("click", loopLogic);
+
+// Rotate Image Button
+songImg.addEventListener("dblclick", function () {
+  audioBox.paused === false
+    ? songImg.classList.toggle("profile__img--rotate")
+    : "";
+});
