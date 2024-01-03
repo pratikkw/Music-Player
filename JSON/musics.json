@@ -6,6 +6,7 @@
       "artiest": "Glass Animals",
       "img": "../images/Heatwaves.jpg",
       "audio": "Songs/Glass Animals - Heat Waves (Official Video).mp3",
+      "soungDuration": "3:35",
       "color-theme": ""
     },
     {
@@ -14,6 +15,7 @@
       "artiest": "Top-Flow-Production",
       "img": "../images/Happyday.webp",
       "audio": "../Songs/happy-day-background-vlog-music-148320.mp3",
+      "soungDuration": "1:48",
       "color-theme": ""
     },
 
@@ -23,6 +25,7 @@
       "artiest": "Maroon 5",
       "img": "../images/maroon-5-gril-like-you.jpg",
       "audio": "../Songs/Maroon 5 - Girls Like You ft. Cardi B (Official Music Video).mp3",
+      "soungDuration": "4:30",
       "color-theme": ""
     },
 
@@ -32,6 +35,7 @@
       "artiest": "Maroon 5",
       "img": "../images/Sugar-maroon5.jpg",
       "audio": "../Songs/Maroon 5 - Sugar (Official Music Video).mp3",
+      "soungDuration": "5:01",
       "color-theme": ""
     },
 
@@ -41,6 +45,7 @@
       "artiest": "Otnicka & Duke Luke",
       "img": "../images/Cillian-Murphy-Peaky-Blinders.jpg",
       "audio": "../Songs/Otnicka - Peaky Blinder (lyrics) _ i am not outsider i'm a peaky blinder.mp3",
+      "soungDuration": "2:31",
       "color-theme": ""
     },
 
@@ -50,6 +55,7 @@
       "artiest": "Nick Cave & The Bad Seeds",
       "img": "../Images/Redrighthand.jpg",
       "audio": "../Songs/Peaky Blinders Theme Song.mp3",
+      "soungDuration": "6:31",
       "color-theme": ""
     },
 
@@ -59,6 +65,7 @@
       "artiest": "Post Malone, Swae Lee",
       "img": "../images/cover-spiderman-clip.jpg",
       "audio": "../Songs/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3",
+      "soungDuration": "2:41",
       "color-theme": ""
     },
 
@@ -68,6 +75,7 @@
       "artiest": "The Weeknd",
       "img": "../images/blinding lights.jpg",
       "audio": "../Songs/The Weeknd - Blinding Lights (Official Video).mp3",
+      "soungDuration": "4:22",
       "color-theme": ""
     },
 
@@ -77,6 +85,7 @@
       "artiest": "The Weeknd",
       "img": "../images/starboy.jpg",
       "audio": "../Songs/The Weeknd - Starboy ft. Daft Punk (Official Video).mp3",
+      "soungDuration": "4:33",
       "color-theme": ""
     },
 
@@ -86,6 +95,7 @@
       "artiest": "StudioKolomna",
       "img": "../images/risk.webp",
       "audio": "../Songs/risk.mp3",
+      "soungDuration": "1:12",
       "color-theme": ""
     }
   ]

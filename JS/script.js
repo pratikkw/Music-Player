@@ -4,10 +4,14 @@ const body = document.body;
 const overlay = document.querySelector(".overlay");
 const preloader = document.querySelector(".preloader");
 const preloaderImg = document.querySelector(".preloader img");
+const main = document.querySelector(".main");
+
+// PLAYLIST,
 const playlistArea = document.querySelector(".playlist__box");
 const songLists = document.querySelector(".lists");
 const playlistCloseBtn = document.querySelector(".close");
 
+// AUDIO
 const audioBox = document.querySelector(".our__audio");
 
 // SELECT IMG, TITLE, ARTIEST
@@ -21,7 +25,7 @@ const totalDuration = document.querySelector(".total__duration");
 const progressArea = document.querySelector(".progressArea");
 const progressbar = document.querySelector(".progressbar");
 const play_pauseBtn = document.getElementById("start_stop");
-const play_pauseSpan = document.getElementById("play_btn");
+const play_pauseIcon = document.getElementById("play_btn");
 const skipNext = document.getElementById("forward");
 const skipPrev = document.getElementById("previous");
 const loopBtn = document.getElementById("loop");
@@ -58,7 +62,7 @@ const addSongsToList = function (s) {
     <div class="detail grid">
       <span class="list_songname">${item.title}</span>
       <p class="para flex">
-        ${item.artiest} <span>&centerdot; 3:45</span>
+        ${item.artiest} <span>&centerdot; ${item.soungDuration}</span>
       </p>
     </div>
     <span class="material-symbols-outlined list__play">
@@ -108,17 +112,14 @@ const play_puase_Logic = function (element) {
 const skip = function () {
   setupSong(currentSong);
   audioBox.play();
-  play_pauseSpan.innerText = "pause";
+  play_pauseIcon.innerText = "pause";
 };
 // -------------------------------
 
 // --> LOOP LOGIC
 const loopLogic = function () {
-  if (loopIcon.innerText === "repeat") {
-    loopIcon.innerText = "repeat_one";
-  } else if (loopIcon.innerText === "repeat_one") {
-    loopIcon.innerText = "repeat";
-  }
+  loopIcon.innerText =
+    loopIcon.innerText === "repeat" ? "repeat_one" : "repeat";
 };
 // -------------------------------
 
@@ -139,11 +140,8 @@ const highlightItem = function (num) {
 
   allLists[num].style.backgroundColor = "#3f3f3f";
   const btnPlay = allLists[num].querySelector(".list__play");
-  if (btnPlay.innerText === "play_arrow") {
-    btnPlay.innerText = "pause";
-  } else if (btnPlay.innerText === "pause") {
-    btnPlay.innerText = "play_arrow";
-  }
+  btnPlay.innerText =
+    btnPlay.innerText === "play_arrow" ? "pause" : "play_arrow";
 };
 // -------------------------------
 
@@ -159,15 +157,13 @@ const startandstopLists = function () {
 audioBox.addEventListener("timeupdate", function (e) {
   const ct = e.target.currentTime;
   const songDura = e.target.duration;
+
+  // Total Duration:-
   const min = Math.trunc(songDura / 60);
   const sec = Math.trunc(songDura % 60);
 
-  // Total Duration:-
-  if (isNaN(min) || isNaN(sec)) {
-    totalDuration.textContent = `0:00`;
-  } else {
-    totalDuration.textContent = `${min}:${sec > 10 ? sec : "0" + sec}`;
-  }
+  totalDuration.textContent =
+    isNaN(min) || isNaN(sec) ? `0:00` : `${min}:${sec > 10 ? sec : "0" + sec}`;
 
   // Update Current Time:-
   const ctroundup = Math.trunc(e.target.currentTime);
@@ -190,7 +186,6 @@ audioBox.addEventListener("ended", function () {
     currentSong++;
     setupSong(currentSong);
     audioBox.play();
-    play_pauseSpan.innerText = "pause";
     highlightItem(currentSong);
   }
 });
@@ -208,7 +203,7 @@ progressArea.addEventListener("click", function (e) {
     `${(dragArea / total_width) * 100}%`
   );
   audioBox.play();
-  play_pauseSpan.innerText = "pause";
+  play_pauseIcon.innerText = "pause";
   highlightItem(currentSong);
 });
 // -------------------------------
@@ -220,18 +215,18 @@ songLists.addEventListener("click", function (e) {
 
   if (item.dataset.id === currentSong && audioBox.paused === false) {
     audioBox.pause();
-    play_pauseSpan.innerText = "play_arrow";
+    play_pauseIcon.innerText = "play_arrow";
     startandstopLists();
   } else if (item.dataset.id === currentSong && audioBox.paused === true) {
     audioBox.play();
-    play_pauseSpan.innerText = "pause";
+    play_pauseIcon.innerText = "pause";
     startandstopLists();
   } else {
     currentSong = item.dataset.id;
     setupSong(currentSong);
-    highlightItem(currentSong);
     audioBox.play();
-    play_pauseSpan.innerText = "pause";
+    play_pauseIcon.innerText = "pause";
+    highlightItem(currentSong);
   }
   playlistArea.classList.remove("playlist__box--active");
   overlay.classList.remove("overlay--active");
@@ -239,16 +234,27 @@ songLists.addEventListener("click", function (e) {
 });
 // -------------------------------
 
+// PlaylistOpen/Close Button & overlay Button
 playlistBtn.addEventListener("click", openPlaylist);
 playlistCloseBtn.addEventListener("click", openPlaylist);
 overlay.addEventListener("click", openPlaylist);
 
+// Play/Pause Button
 play_pauseBtn.addEventListener("click", function (e) {
   play_puase_Logic(e.target);
   highlightItem(currentSong);
   startandstopLists();
 });
 
+body.addEventListener("keydown", function (e) {
+  e.preventDefault();
+  if (e.key !== " ") return;
+  play_puase_Logic(play_pauseIcon);
+  highlightItem(currentSong);
+  startandstopLists();
+});
+
+// SkipPrev Button
 skipNext.addEventListener("click", function () {
   currentSong++;
   currentSong = currentSong === maxLeng ? 0 : currentSong;
@@ -256,6 +262,7 @@ skipNext.addEventListener("click", function () {
   highlightItem(currentSong);
 });
 
+// SkipPrev Button
 skipPrev.addEventListener("click", function () {
   currentSong--;
   currentSong = currentSong < 0 ? maxLeng - 1 : currentSong;
@@ -263,4 +270,5 @@ skipPrev.addEventListener("click", function () {
   highlightItem(currentSong);
 });
 
+// Loop Button
 loopBtn.addEventListener("click", loopLogic);
