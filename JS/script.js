@@ -25,6 +25,7 @@ const play_pauseSpan = document.getElementById("play_btn");
 const skipNext = document.getElementById("forward");
 const skipPrev = document.getElementById("previous");
 const loopBtn = document.getElementById("loop");
+const loopIcon = document.getElementById("loop_icon");
 const playlistBtn = document.getElementById("playlist");
 
 let allSong;
@@ -111,6 +112,16 @@ const skip = function () {
 };
 // -------------------------------
 
+// --> LOOP LOGIC
+const loopLogic = function () {
+  if (loopIcon.innerText === "repeat") {
+    loopIcon.innerText = "repeat_one";
+  } else if (loopIcon.innerText === "repeat_one") {
+    loopIcon.innerText = "repeat";
+  }
+};
+// -------------------------------
+
 window.addEventListener("load", function () {
   preloaderImg.src = "";
   preloaderImg.alt = "";
@@ -171,6 +182,18 @@ audioBox.addEventListener("timeupdate", function (e) {
     `${(ct / songDura) * 100}%`
   );
 });
+
+audioBox.addEventListener("ended", function () {
+  if (loopIcon.innerText === "repeat_one") {
+    audioBox.play();
+  } else {
+    currentSong++;
+    setupSong(currentSong);
+    audioBox.play();
+    play_pauseSpan.innerText = "pause";
+    highlightItem(currentSong);
+  }
+});
 // -------------------------------
 
 // --> SET PROGRESS BAR
@@ -186,6 +209,7 @@ progressArea.addEventListener("click", function (e) {
   );
   audioBox.play();
   play_pauseSpan.innerText = "pause";
+  highlightItem(currentSong);
 });
 // -------------------------------
 
@@ -238,3 +262,5 @@ skipPrev.addEventListener("click", function () {
   skip();
   highlightItem(currentSong);
 });
+
+loopBtn.addEventListener("click", loopLogic);
