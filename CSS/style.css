@@ -75,15 +75,16 @@ button {
   --black-clr: hsl(0, 0%, 0%);
 
   /* MARGIN */
-  /* --main-mg-top: 2.25rem; */
-  --main-mg-top: auto;
-  --main-mg-bttm: 0.75rem;
+  --main-mg-top: 2.25rem;
+  --main-mg-bttm: 0rem;
 
   /* PADDING */
   --main__cont-padding-inline: 1.25rem;
 
   /* GAP */
-  --main__cont-gap: 4.125rem;
+  /* --main__cont-gap: 4.125rem; */
+  /* --main__cont-gap: 3.75rem; */
+  --main__cont-gap: 3rem;
 
   /* FONT */
   --primary-text-fs: 1.55rem;
@@ -163,7 +164,8 @@ body {
 
   /* GAP */
   --status_box-gap: 0.25rem;
-  --wrapper-gap: 2.75rem;
+  /* --wrapper-gap: 2.75rem; */
+  --wrapper-gap: 2rem;
   --about-gap: 2.5rem;
   --about_div-gap: 0.5rem;
   --playlist_box-gap: 0rem;
@@ -223,6 +225,8 @@ body {
 
 .about {
   gap: var(--about-gap);
+  grid-template-rows: auto 5.5rem;
+  align-items: flex-start;
 }
 
 .about > div {
@@ -545,6 +549,7 @@ body {
 
   .about {
     margin-bottom: var(--about-mg-bttm);
+    grid-template-rows: 1fr;
   }
 
   .playlist__box {
