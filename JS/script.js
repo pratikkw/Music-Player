@@ -45,8 +45,6 @@ const setupSong = function (num) {
   title.textContent = ourSong.title;
   artiest.textContent = ourSong.artiest;
   audioBox.src = ourSong.audio;
-
-  songImg.classList.remove("profile__img--rotate");
 };
 // -------------------------------
 
