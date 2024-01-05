@@ -481,6 +481,7 @@ body {
   .progress__box {
     opacity: 0.2;
     pointer-events: none;
+    transition: opacity 0.3s;
   }
 
   .progress__box--active {
