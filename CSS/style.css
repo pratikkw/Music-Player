@@ -333,7 +333,7 @@ body {
 
   position: relative;
   z-index: 15;
-  display: none;
+  opacity: 0;
 }
 
 .progressbar::after {
@@ -510,7 +510,7 @@ body {
   }
 
   .progressbar:hover::-webkit-slider-thumb {
-    display: block;
+    opacity: 1;
   }
 
   .list:hover {

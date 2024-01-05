@@ -37,6 +37,7 @@ let allSong;
 let countMin = 0;
 let currentSong = 0;
 let maxLeng;
+progressbar.max = progressbar.offsetWidth;
 
 // --> SETUP SONG
 const setupSong = function (num) {
@@ -48,7 +49,6 @@ const setupSong = function (num) {
   audioBox.src = ourSong.audio;
 
   songImg.classList.remove("profile__img--rotate");
-  progressbar.max = progressbar.offsetWidth;
 };
 // -------------------------------
 
@@ -159,6 +159,7 @@ const startandstopLists = function () {
 
 // --> UPDATE CURRENT TIME & SET TOTAL DURATION
 audioBox.addEventListener("timeupdate", function (e) {
+  progressbar.max = progressbar.offsetWidth;
   const ct = e.target.currentTime;
   const songDura = e.target.duration;
 
