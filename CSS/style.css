@@ -453,6 +453,42 @@ body {
 }
 /* --------------------- */
 
+/* MEDIA QUERY FOR HOVERs */
+@media only screen and (hover: hover) {
+  .progressArea:hover {
+    background-color: var(--progressArea-bk-hover-clr);
+  }
+
+  .progressbar,
+  .list {
+    cursor: pointer;
+  }
+
+  .progressbar::-webkit-slider-thumb {
+    cursor: pointer;
+  }
+
+  .progressbar:hover::-webkit-slider-thumb {
+    opacity: 1;
+  }
+
+  .list:hover {
+    background-color: var(--list-hover-bk-clr);
+  }
+}
+
+@media only screen and (hover: none) {
+  .progress__box {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .progress__box--active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 /* UTILITIES CLASSes */
 .hide {
   display: none;
@@ -489,35 +525,11 @@ body {
 }
 
 .list--active-bk-clr {
-  background-color: hsl(0, 0%, 25%);
+  background-color: hsl(0, 0%, 25%) !important;
 }
 /* --------------------- */
 
 /* MEDIA QUERY */
-
-@media only screen and (hover: hover) {
-  .progressArea:hover {
-    background-color: var(--progressArea-bk-hover-clr);
-  }
-
-  .progressbar,
-  .list {
-    cursor: pointer;
-  }
-
-  .progressbar::-webkit-slider-thumb {
-    cursor: pointer;
-  }
-
-  .progressbar:hover::-webkit-slider-thumb {
-    opacity: 1;
-  }
-
-  .list:hover {
-    background-color: var(--list-hover-bk-clr);
-  }
-}
-
 @media only screen and (min-width: 31.25rem) {
   :root {
     --primary-text-fs: 1.85rem;

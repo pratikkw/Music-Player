@@ -23,6 +23,7 @@ const totalDuration = document.querySelector(".total__duration");
 
 // CONTROLs
 const controlBox = document.querySelector(".controls");
+const porgressBox = document.querySelector(".progress__box");
 const progressArea = document.querySelector(".progressArea");
 const progressbar = document.querySelector(".progressbar");
 const play_pauseBtn = document.getElementById("start_stop");
@@ -38,6 +39,12 @@ let countMin = 0;
 let currentSong = 0;
 let maxLeng;
 progressbar.max = progressbar.offsetWidth;
+
+window.addEventListener("load", function () {
+  preloaderImg.src = "";
+  preloaderImg.alt = "";
+  preloader.classList.add("preloader--deactivate");
+});
 
 // --> SETUP SONG
 const setupSong = function (num) {
@@ -86,6 +93,7 @@ const getSongs = async function () {
 
   allSong = music;
   maxLeng = music.length;
+  currentSong = Math.floor(Math.random() * maxLeng);
   addSongsToList(music);
   setupSong(currentSong);
 };
@@ -99,6 +107,10 @@ const openPlaylist = function () {
   body.classList.toggle("body-scroll--lock");
 };
 // -------------------------------
+
+const activateProgressBar = function () {
+  porgressBox.classList.add("progress__box--active");
+};
 
 // --> PLAY/PAUSE LOGIC
 const play_puase_Logic = function (element) {
@@ -117,6 +129,7 @@ const skip = function () {
   setupSong(currentSong);
   audioBox.play();
   play_pauseIcon.innerText = "pause";
+  activateProgressBar();
 };
 // -------------------------------
 
@@ -126,12 +139,6 @@ const loopLogic = function () {
     loopIcon.innerText === "repeat" ? "repeat_one" : "repeat";
 };
 // -------------------------------
-
-window.addEventListener("load", function () {
-  preloaderImg.src = "";
-  preloaderImg.alt = "";
-  preloader.classList.add("preloader--deactivate");
-});
 
 // --> HIGHLIGHT THE MUSIC IN LISTs
 const highlightItem = function (num) {
@@ -217,8 +224,10 @@ const progressBarLogic = function () {
   play_pauseIcon.innerText = "pause";
   highlightItem(currentSong);
 };
+
 progressbar.addEventListener("input", progressBarLogic);
 progressbar.addEventListener("click", progressBarLogic);
+progressbar.addEventListener("touchstart", progressBarLogic);
 // -------------------------------
 
 // --> SELECT MUSIC FROM LISTs
@@ -243,6 +252,8 @@ songLists.addEventListener("click", function (e) {
     play_pauseIcon.innerText = "pause";
     highlightItem(currentSong);
   }
+
+  activateProgressBar();
   playlistArea.classList.remove("playlist__box--active");
   overlay.classList.remove("overlay--active");
   body.classList.remove("body-scroll--lock");
@@ -257,6 +268,7 @@ overlay.addEventListener("click", openPlaylist);
 // Play/Pause Button
 play_pauseBtn.addEventListener("click", function (e) {
   play_puase_Logic(e.target);
+  activateProgressBar();
   highlightItem(currentSong);
   startandstopLists();
 });
