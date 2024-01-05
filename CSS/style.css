@@ -269,6 +269,9 @@ body {
   --progressArea-height: 0.25rem;
   --progressbar-height: 0.25rem;
   --progressbar-border-radius: 0.25rem;
+
+  /* WIDTH */
+  --progressbar-pseudo-ele-width: 0px;
 }
 
 .progress__box {
@@ -276,23 +279,25 @@ body {
 }
 
 .progressArea {
-  --progressbar-psedafter-width: 0%;
-  position: relative;
+  /* --progressbar-psedafter-width: 0%; */
+  /* position: relative; */
 
   width: 100%;
   height: var(--progressArea-height);
   background-color: var(--progressArea-bk-clr);
+
+  position: relative;
   transition: all 0.3s;
 }
 
-.progressbar {
+/* .progressbar {
   width: 0%;
   background-color: var(--progressbar-clr);
   height: var(--progressbar-height);
   border-radius: var(--progressbar-border-radius);
-}
+} */
 
-.progressArea::after {
+/* .progressArea::after {
   content: "";
   position: absolute;
   top: 0;
@@ -303,6 +308,44 @@ body {
   border-radius: 50%;
   background-color: var(--progressbar-clr);
   display: none;
+} */
+
+.progressbar {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  height: var(--progressbar-height);
+  border-radius: var(--progressbar-border-radius);
+  background-color: transparent;
+  position: absolute;
+  inset: 0;
+}
+
+.progressbar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0.85rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--progressbar-clr);
+
+  position: relative;
+  z-index: 15;
+  display: none;
+}
+
+.progressbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+
+  height: 100%;
+  width: var(--progressbar-pseudo-ele-width);
+  background-color: var(--progressbar-clr);
 }
 
 .duration {
@@ -453,20 +496,21 @@ body {
 /* MEDIA QUERY */
 
 @media only screen and (hover: hover) {
-  .progressArea {
-    cursor: pointer;
-  }
-
   .progressArea:hover {
     background-color: var(--progressArea-bk-hover-clr);
   }
 
-  .progressArea:hover::after {
-    display: block;
-  }
-
+  .progressbar,
   .list {
     cursor: pointer;
+  }
+
+  .progressbar::-webkit-slider-thumb {
+    cursor: pointer;
+  }
+
+  .progressbar:hover::-webkit-slider-thumb {
+    display: block;
   }
 
   .list:hover {

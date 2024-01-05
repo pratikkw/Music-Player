@@ -22,6 +22,7 @@ const currentsongTime = document.querySelector(".current__time");
 const totalDuration = document.querySelector(".total__duration");
 
 // CONTROLs
+const controlBox = document.querySelector(".controls");
 const progressArea = document.querySelector(".progressArea");
 const progressbar = document.querySelector(".progressbar");
 const play_pauseBtn = document.getElementById("start_stop");
@@ -47,6 +48,7 @@ const setupSong = function (num) {
   audioBox.src = ourSong.audio;
 
   songImg.classList.remove("profile__img--rotate");
+  progressbar.max = progressbar.offsetWidth;
 };
 // -------------------------------
 
@@ -176,10 +178,12 @@ audioBox.addEventListener("timeupdate", function (e) {
   currentsongTime.textContent = `${ctmin}:${ctsec >= 10 ? ctsec : "0" + ctsec}`;
 
   // ProgressBar:-
-  progressbar.style.width = `${(ct / songDura) * 100}%`;
-  progressArea.style.setProperty(
-    "--progressbar-psedafter-width",
-    `${(ct / songDura) * 100}%`
+  const songTillComplPerc = ct / songDura;
+  const porgressBarComplPerc = songTillComplPerc * progressbar.max;
+  progressbar.value = porgressBarComplPerc;
+  controlBox.style.setProperty(
+    "--progressbar-pseudo-ele-width",
+    `${porgressBarComplPerc}px`
   );
 
   // Rotating Image
@@ -199,20 +203,21 @@ audioBox.addEventListener("ended", function () {
 // -------------------------------
 
 // --> SET PROGRESS BAR
-progressArea.addEventListener("click", function (e) {
-  const dragArea = e.clientX;
-  const total_width = this.offsetWidth;
+const progressBarLogic = function () {
+  const perWeDrag = this.value / this.max;
 
-  audioBox.currentTime = (dragArea / total_width) * audioBox.duration;
-  progressbar.style.width = `${(dragArea / total_width) * 100}%`;
-  progressArea.style.setProperty(
-    "--progressbar-psedafter-width",
-    `${(dragArea / total_width) * 100}%`
+  audioBox.currentTime = audioBox.duration * perWeDrag;
+  controlBox.style.setProperty(
+    "--progressbar-pseudo-ele-width",
+    `${this.value}px`
   );
+
   audioBox.play();
   play_pauseIcon.innerText = "pause";
   highlightItem(currentSong);
-});
+};
+progressbar.addEventListener("input", progressBarLogic);
+progressbar.addEventListener("click", progressBarLogic);
 // -------------------------------
 
 // --> SELECT MUSIC FROM LISTs
