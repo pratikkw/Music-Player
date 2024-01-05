@@ -51,6 +51,10 @@ const setupSong = function (num) {
   const ourSong = allSong[num];
 
   songImg.src = ourSong.img;
+  document.documentElement.style.setProperty(
+    "--profile-img-border-clr",
+    ourSong.colorTheme
+  );
   title.textContent = ourSong.title;
   artiest.textContent = ourSong.artiest;
   audioBox.src = ourSong.audio;

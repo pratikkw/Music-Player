@@ -34,17 +34,9 @@ h3 {
   letter-spacing: 0.5px;
 }
 
-/* h1 {
-  user-select: text;
-} */
-
 button {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
-
-/* span::selection {
-  background-color: transparent;
-} */
 
 :root {
   --main-bk-clr: hsl(0, 0%, 6%);
@@ -52,7 +44,6 @@ button {
   --progressbar-clr: hsl(47, 95%, 56%);
   --start-stop-clr: hsl(47, 95%, 56%);
   --artiest-clr: hsl(0, 0%, 64%);
-  /* --para-clr: hsl(0, 0%, 37%); */
   --para-clr: hsl(0, 1%, 43%);
 
   --playlist__box-bk-clr: hsl(0, 0%, 15%);
@@ -70,6 +61,7 @@ button {
   --header-border-bttm: 2px solid hsl(0, 0%, 34%);
   --header-border: 0px 3px 12px 2px;
   --header-border-clr: hsl(0deg 0% 34.12% / 40%);
+  --profile-img-border-clr: hsla(45, 63%, 50%, 0.75);
 
   --white-clr: hsl(0, 0%, 100%);
   --black-clr: hsl(0, 0%, 0%);
@@ -82,8 +74,6 @@ button {
   --main__cont-padding-inline: 1.25rem;
 
   /* GAP */
-  /* --main__cont-gap: 4.125rem; */
-  /* --main__cont-gap: 3.75rem; */
   --main__cont-gap: 3rem;
 
   /* FONT */
@@ -164,7 +154,6 @@ body {
 
   /* GAP */
   --status_box-gap: 0.25rem;
-  /* --wrapper-gap: 2.75rem; */
   --wrapper-gap: 2rem;
   --about-gap: 2.5rem;
   --about_div-gap: 0.5rem;
@@ -241,7 +230,8 @@ body {
 
 #profile__img {
   width: var(--profile-img-width);
-  box-shadow: 0px 3px 30px 0px hsla(45, 63%, 50%, 0.75);
+  box-shadow: 0px 3px 30px 0px
+    var(--profile-img-border-clr, hsla(45, 63%, 50%, 0.75));
 }
 
 .artiest {
@@ -279,9 +269,6 @@ body {
 }
 
 .progressArea {
-  /* --progressbar-psedafter-width: 0%; */
-  /* position: relative; */
-
   width: 100%;
   height: var(--progressArea-height);
   background-color: var(--progressArea-bk-clr);
@@ -289,26 +276,6 @@ body {
   position: relative;
   transition: all 0.3s;
 }
-
-/* .progressbar {
-  width: 0%;
-  background-color: var(--progressbar-clr);
-  height: var(--progressbar-height);
-  border-radius: var(--progressbar-border-radius);
-} */
-
-/* .progressArea::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: var(--progressbar-psedafter-width);
-  transform: translate(-10%, -40%);
-  width: 0.85rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  background-color: var(--progressbar-clr);
-  display: none;
-} */
 
 .progressbar {
   outline: none;

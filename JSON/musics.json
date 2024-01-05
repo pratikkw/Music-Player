@@ -7,7 +7,7 @@
       "img": "../images/Heatwaves.jpg",
       "audio": "Songs/Glass Animals - Heat Waves (Official Video).mp3",
       "soungDuration": "3:35",
-      "color-theme": ""
+      "colorTheme": "hsla(307deg 30% 47% / 85%)"
     },
     {
       "id": 1,
@@ -16,7 +16,7 @@
       "img": "../images/Happyday.webp",
       "audio": "../Songs/happy-day-background-vlog-music-148320.mp3",
       "soungDuration": "1:48",
-      "color-theme": ""
+      "colorTheme": "hsla(201deg 100% 36% / 75%)"
     },
 
     {
@@ -26,7 +26,7 @@
       "img": "../images/maroon-5-gril-like-you.jpg",
       "audio": "../Songs/Maroon 5 - Girls Like You ft. Cardi B (Official Music Video).mp3",
       "soungDuration": "4:30",
-      "color-theme": ""
+      "colorTheme": "hsla(0deg 0% 100% / 55%)"
     },
 
     {
@@ -36,7 +36,7 @@
       "img": "../images/Sugar-maroon5.jpg",
       "audio": "../Songs/Maroon 5 - Sugar (Official Music Video).mp3",
       "soungDuration": "5:01",
-      "color-theme": ""
+      "colorTheme": "hsla(30deg 74% 35% / 75%)"
     },
 
     {
@@ -46,7 +46,7 @@
       "img": "../images/Cillian-Murphy-Peaky-Blinders.jpg",
       "audio": "../Songs/Otnicka - Peaky Blinder (lyrics) _ i am not outsider i'm a peaky blinder.mp3",
       "soungDuration": "2:31",
-      "color-theme": ""
+      "colorTheme": "hsla(44deg 40% 55% / 75%)"
     },
 
     {
@@ -56,7 +56,7 @@
       "img": "../Images/Redrighthand.jpg",
       "audio": "../Songs/Peaky Blinders Theme Song.mp3",
       "soungDuration": "6:31",
-      "color-theme": ""
+      "colorTheme": "hsla(84deg 3% 36% / 100%)"
     },
 
     {
@@ -66,7 +66,7 @@
       "img": "../images/cover-spiderman-clip.jpg",
       "audio": "../Songs/Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3",
       "soungDuration": "2:41",
-      "color-theme": ""
+      "colorTheme": "hsla(354deg 9% 58% / 70%)"
     },
 
     {
@@ -76,7 +76,7 @@
       "img": "../images/blinding lights.jpg",
       "audio": "../Songs/The Weeknd - Blinding Lights (Official Video).mp3",
       "soungDuration": "4:22",
-      "color-theme": ""
+      "colorTheme": "hsla(45, 63%, 50%, 0.75)"
     },
 
     {
@@ -86,7 +86,7 @@
       "img": "../images/starboy.jpg",
       "audio": "../Songs/The Weeknd - Starboy ft. Daft Punk (Official Video).mp3",
       "soungDuration": "4:33",
-      "color-theme": ""
+      "colorTheme": "hsla(349deg 100% 41% / 90%)"
     },
 
     {
@@ -96,7 +96,7 @@
       "img": "../images/risk.webp",
       "audio": "../Songs/risk.mp3",
       "soungDuration": "1:12",
-      "color-theme": ""
+      "colorTheme": "hsla(45, 63%, 50%, 0.75)"
     }
   ]
 }
