@@ -183,8 +183,7 @@ body {
   /* MARGIN */
 
   /* HEIGHT */
-  /* --lists-height: 24rem; */
-  --lists-height: 60dvh;
+  --lists-height: 65dvh;
 
   /* WIDTH */
   --list_profile-width: 3.5rem;
