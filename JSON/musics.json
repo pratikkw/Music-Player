@@ -97,6 +97,16 @@
       "audio": "../Songs/risk.mp3",
       "soungDuration": "1:12",
       "colorTheme": "hsla(45, 63%, 50%, 0.75)"
+    },
+
+    {
+      "id": 10,
+      "title": "Priceless ft.LISA",
+      "artiest": "Maroon 5",
+      "img": "../images/Priceless.jpg",
+      "audio": "../Songs/Priceless Ft Lisa.mp3",
+      "soungDuration": "2:51",
+      "colorTheme": "hsla(240, 20%, 90%, 0.6)"
     }
   ]
 }
